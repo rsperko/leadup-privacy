@@ -1,316 +1,464 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>LeadUp Support</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - LeadUp</title>
+    <meta name="description" content="LeadUp Support. Get help with events, steps, notifications, and Pro features.">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             color: #333;
+            line-height: 1.7;
+            background: #f8f9fa;
         }
-        h1 {
-            color: #007AFF;
-            border-bottom: 2px solid #007AFF;
-            padding-bottom: 10px;
+
+        /* Branded Header */
+        .site-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 24px 20px;
+            text-align: center;
         }
-        h2 {
-            color: #555;
-            margin-top: 40px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
         }
-        h3 {
-            color: #666;
-            margin-top: 25px;
+
+        .header-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
         }
+
+        .header-text h1 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .header-text p {
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+            min-height: calc(100vh - 200px);
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 24px;
+        }
+
+        /* Contact Box */
         .contact-box {
-            background: #f5f5f5;
-            border-left: 4px solid #007AFF;
-            padding: 15px 20px;
-            margin: 20px 0;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            border-radius: 0 8px 8px 0;
         }
-        .tip {
-            background: #e8f4f8;
-            border-left: 4px solid #34C759;
-            padding: 15px 20px;
-            margin: 15px 0;
+
+        .contact-box a {
+            color: #667eea;
+            font-weight: 600;
         }
-        .warning {
-            background: #fff3e0;
-            border-left: 4px solid #FF9500;
-            padding: 15px 20px;
-            margin: 15px 0;
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
         }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #444;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #444;
+        }
+
+        ul, ol {
+            margin: 0 0 16px 24px;
+            color: #444;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         code {
             background: #f4f4f4;
             padding: 2px 6px;
-            border-radius: 3px;
+            border-radius: 4px;
             font-family: 'SF Mono', Monaco, monospace;
             font-size: 0.9em;
+            color: #1a1a2e;
         }
-        ul {
-            margin-left: 20px;
+
+        /* Tip Box */
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid #34C759;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
         }
-        li {
-            margin: 8px 0;
+
+        .tip strong {
+            color: #2e7d32;
         }
+
+        /* Warning Box */
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid #FF9500;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning strong {
+            color: #e65100;
+        }
+
+        /* FAQ */
         .faq-question {
             font-weight: 600;
-            color: #444;
-            margin-top: 20px;
+            color: #1a1a2e;
+            margin-top: 24px;
+            margin-bottom: 8px;
         }
-        a {
-            color: #007AFF;
-            text-decoration: none;
+
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 32px 20px;
+            text-align: center;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: #667eea;
+            margin: 0 16px;
+            font-size: 14px;
+        }
+
+        .footer-copyright {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .page-title {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 17px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>LeadUp Support</h1>
+    <header class="site-header">
+        <div class="header-content">
+            <img src="app-icon.png" alt="LeadUp" class="header-icon">
+            <div class="header-text">
+                <h1>LeadUp</h1>
+                <p>Plan backward. Zero math.</p>
+            </div>
+        </div>
+    </header>
 
-    <div class="contact-box">
-        <strong>Need help?</strong> Email us at <a href="mailto:leaduphelp@gmail.com">leaduphelp@gmail.com</a>
-        <br>We typically respond within 24 hours.
-    </div>
+    <main class="content">
+        <h1 class="page-title">Support</h1>
 
-    <h2>Quick Start</h2>
-    <p><strong>LeadUp anchors every step to your event time.</strong> When your event time changes, every step automatically shifts. No recalculating, no broken schedules.</p>
+        <div class="contact-box">
+            <strong>Need help?</strong> Email us at <a href="mailto:leaduphelp@gmail.com">leaduphelp@gmail.com</a>
+            <br>We typically respond within 24 hours.
+        </div>
 
-    <h3>Create Your First Event</h3>
-    <ol>
-        <li>Tap the <strong>+ Add Event</strong> button at the bottom</li>
-        <li>Enter the event name and time (e.g., "Flight to NYC" at 8:00 AM)</li>
-        <li>Tap <strong>Save</strong></li>
-    </ol>
+        <h2>Quick Start</h2>
+        <p><strong>LeadUp anchors every step to your event time.</strong> When your event time changes, every step automatically shifts. No recalculating, no broken schedules.</p>
 
-    <h3>Add Steps</h3>
-    <ol>
-        <li>Tap <strong>Add Next Step</strong> or <strong>Add First Step</strong></li>
-        <li>Enter the step name (e.g., "Leave for airport")</li>
-        <li>Choose <strong>Before</strong> or <strong>After</strong> and set the time offset</li>
-        <li>For "2 hours before the flight," select <strong>Before</strong> and set <strong>0 days, 2 hrs, 0 min</strong></li>
-        <li>Tap <strong>Save</strong></li>
-    </ol>
+        <h3>Create Your First Event</h3>
+        <ol>
+            <li>Tap the <strong>+ Add Event</strong> button at the bottom</li>
+            <li>Enter the event name and time (e.g., "Flight to NYC" at 8:00 AM)</li>
+            <li>Tap <strong>Save</strong></li>
+        </ol>
 
-    <div class="tip">
-        <strong>Pro Tip:</strong> View all your steps on the Timeline screen. Steps from different events appear color-coded and sorted by time, like a subway map for your day.
-    </div>
+        <h3>Add Steps</h3>
+        <ol>
+            <li>Tap <strong>Add Next Step</strong> or <strong>Add First Step</strong></li>
+            <li>Enter the step name (e.g., "Leave for airport")</li>
+            <li>Choose <strong>Before</strong> or <strong>After</strong> and set the time offset</li>
+            <li>For "2 hours before the flight," select <strong>Before</strong> and set <strong>0 days, 2 hrs, 0 min</strong></li>
+            <li>Tap <strong>Save</strong></li>
+        </ol>
 
-    <h2>Understanding Before and After</h2>
-    <p>LeadUp uses <strong>relative time</strong> instead of absolute time. This is what makes everything auto-shift.</p>
+        <div class="tip">
+            <strong>Pro Tip:</strong> View all your steps on the Timeline screen. Steps from different events appear color-coded and sorted by time, like a subway map for your day.
+        </div>
 
-    <h3>What is "Before"?</h3>
-    <p><strong>Before</strong> means a step happens before the event. When creating a step, you choose "Before" and set how far in advance.</p>
-    <ul>
-        <li><strong>2 hours before</strong> = 2 hours before the event</li>
-        <li><strong>30 minutes before</strong> = 30 minutes before the event</li>
-        <li><strong>1 day before</strong> = 1 day before the event</li>
-    </ul>
+        <h2>Understanding Before and After</h2>
+        <p>LeadUp uses <strong>relative time</strong> instead of absolute time. This is what makes everything auto-shift.</p>
 
-    <h3>What is "After"?</h3>
-    <p><strong>After</strong> means a step happens after the event.</p>
-    <ul>
-        <li><strong>15 minutes after</strong> = 15 minutes after the event</li>
-        <li><strong>2 hours after</strong> = 2 hours after the event</li>
-        <li><strong>1 day after</strong> = 1 day after the event</li>
-    </ul>
+        <h3>What is "Before"?</h3>
+        <p><strong>Before</strong> means a step happens before the event. When creating a step, you choose "Before" and set how far in advance.</p>
+        <ul>
+            <li><strong>2 hours before</strong> = 2 hours before the event</li>
+            <li><strong>30 minutes before</strong> = 30 minutes before the event</li>
+            <li><strong>1 day before</strong> = 1 day before the event</li>
+        </ul>
 
-    <h3>The Magic: Auto-Shift</h3>
-    <p>When you change your event time, every step automatically recalculates based on its Before/After offset.</p>
-    <p><strong>Example:</strong> Your flight moves from 8:00 AM to 9:00 AM (+1 hour).</p>
-    <ul>
-        <li>"Leave for airport" (2 hours before) automatically shifts from 6:00 AM → 7:00 AM</li>
-        <li>"Text friend" (3 hours before) automatically shifts from 5:00 AM → 6:00 AM</li>
-        <li>"Send thank you" (2 hours after) automatically shifts from 10:00 AM → 11:00 AM</li>
-    </ul>
+        <h3>What is "After"?</h3>
+        <p><strong>After</strong> means a step happens after the event.</p>
+        <ul>
+            <li><strong>15 minutes after</strong> = 15 minutes after the event</li>
+            <li><strong>2 hours after</strong> = 2 hours after the event</li>
+            <li><strong>1 day after</strong> = 1 day after the event</li>
+        </ul>
 
-    <h2>Free vs. LeadUp Pro</h2>
+        <h3>The Magic: Auto-Shift</h3>
+        <p>When you change your event time, every step automatically recalculates based on its Before/After offset.</p>
+        <p><strong>Example:</strong> Your flight moves from 8:00 AM to 9:00 AM (+1 hour).</p>
+        <ul>
+            <li>"Leave for airport" (2 hours before) automatically shifts from 6:00 AM → 7:00 AM</li>
+            <li>"Text friend" (3 hours before) automatically shifts from 5:00 AM → 6:00 AM</li>
+            <li>"Send thank you" (2 hours after) automatically shifts from 10:00 AM → 11:00 AM</li>
+        </ul>
 
-    <h3>What's Included Free?</h3>
-    <ul>
-        <li><strong>2 active events</strong> - Perfect for ongoing use</li>
-        <li><strong>Unlimited past events</strong> - Your history doesn't count toward the limit</li>
-        <li><strong>Full auto-shift</strong> - All Before/After features work</li>
-        <li><strong>Notifications</strong> - Get reminders for all steps</li>
-        <li><strong>Import shared events</strong> - View plans others send you</li>
-        <li><strong>Calendar linking</strong> - Connect events to your calendar</li>
-    </ul>
+        <h2>Free vs. LeadUp Pro</h2>
 
-    <h3>What's in LeadUp Pro ($9.99 one-time)?</h3>
-    <ul>
-        <li><strong>Unlimited active events</strong> - Plan as many events as you need</li>
-        <li><strong>Duplicate events</strong> - Save your perfect plan and reuse it</li>
-        <li><strong>Share/Export events</strong> - Send .leadup files to others via AirDrop, Messages, or Mail</li>
-        <li><strong>One-time purchase</strong> - No subscriptions, own it forever</li>
-    </ul>
+        <h3>What's Included Free?</h3>
+        <ul>
+            <li><strong>2 active events</strong> — Perfect for ongoing use</li>
+            <li><strong>Unlimited past events</strong> — Your history doesn't count toward the limit</li>
+            <li><strong>Full auto-shift</strong> — All Before/After features work</li>
+            <li><strong>Notifications</strong> — Get reminders for all steps</li>
+            <li><strong>Import shared events</strong> — View plans others send you</li>
+            <li><strong>Calendar linking</strong> — Connect events to your calendar</li>
+        </ul>
 
-    <div class="tip">
-        <strong>Note:</strong> When you share an event, recipients can view and import it for free. Pro is only required to create/share, not to receive.
-    </div>
+        <h3>What's in LeadUp Pro ($9.99 one-time)?</h3>
+        <ul>
+            <li><strong>Unlimited active events</strong> — Plan as many events as you need</li>
+            <li><strong>Duplicate events</strong> — Save your perfect plan and reuse it</li>
+            <li><strong>Share/Export events</strong> — Send .leadup files to others via AirDrop, Messages, or Mail</li>
+            <li><strong>One-time purchase</strong> — No subscriptions, own it forever</li>
+        </ul>
 
-    <h2>Frequently Asked Questions</h2>
+        <div class="tip">
+            <strong>Note:</strong> When you share an event, recipients can view and import it for free. Pro is only required to create/share, not to receive.
+        </div>
 
-    <p class="faq-question">Q: What counts as an "active" event?</p>
-    <p>An event is "active" if either the event itself or any of its steps are in the future. Once all steps have passed, it no longer counts toward your free tier limit.</p>
+        <h2>Frequently Asked Questions</h2>
 
-    <p class="faq-question">Q: Can I pause an event?</p>
-    <p>Yes! Paused events don't count toward your free tier limit. Tap the event, then tap "Pause Event" from the menu.</p>
+        <p class="faq-question">Q: What counts as an "active" event?</p>
+        <p>An event is "active" if either the event itself or any of its steps are in the future. Once all steps have passed, it no longer counts toward your free tier limit.</p>
 
-    <p class="faq-question">Q: How do I duplicate an event?</p>
-    <p>Duplicating requires LeadUp Pro. Tap the event, then tap "Duplicate Event." The copy includes all steps with the same Before/After offsets, so you just need to set the new event time.</p>
+        <p class="faq-question">Q: Can I pause an event?</p>
+        <p>Yes! Paused events don't count toward your free tier limit. Tap the event, then tap "Pause Event" from the menu.</p>
 
-    <p class="faq-question">Q: How do I share an event with someone?</p>
-    <p>Sharing requires LeadUp Pro. Tap the event, then tap the share button. Choose AirDrop, Messages, Mail, or another app. The recipient gets a <code>.leadup</code> file they can import (free users can import).</p>
+        <p class="faq-question">Q: How do I duplicate an event?</p>
+        <p>Duplicating requires LeadUp Pro. Tap the event, then tap "Duplicate Event." The copy includes all steps with the same Before/After offsets, so you just need to set the new event time.</p>
 
-    <p class="faq-question">Q: Can I link LeadUp to my calendar?</p>
-    <p>Yes! When creating or editing an event, tap "Link to Calendar Event" and choose an event from your calendar. If the calendar event time changes, LeadUp can update automatically.</p>
+        <p class="faq-question">Q: How do I share an event with someone?</p>
+        <p>Sharing requires LeadUp Pro. Tap the event, then tap the share button. Choose AirDrop, Messages, Mail, or another app. The recipient gets a <code>.leadup</code> file they can import (free users can import).</p>
 
-    <p class="faq-question">Q: Does LeadUp work offline?</p>
-    <p>Absolutely. LeadUp is fully offline and private. All your data stays on your device. Optionally, you can back up to your iCloud Drive (your personal cloud, not our servers).</p>
+        <p class="faq-question">Q: Can I link LeadUp to my calendar?</p>
+        <p>Yes! When creating or editing an event, tap "Link to Calendar Event" and choose an event from your calendar. If the calendar event time changes, LeadUp can update automatically.</p>
 
-    <p class="faq-question">Q: What happens to my Pro status if I reinstall the app?</p>
-    <p>Your Pro purchase is tied to your Apple ID. After reinstalling, tap "Restore Purchases" in Settings to restore your Pro status.</p>
+        <p class="faq-question">Q: Does LeadUp work offline?</p>
+        <p>Absolutely. LeadUp is fully offline and private. All your data stays on your device. Optionally, you can back up to your iCloud Drive (your personal cloud, not our servers).</p>
 
-    <p class="faq-question">Q: Can I use LeadUp on multiple devices?</p>
-    <p>Yes! Your Pro purchase works on all devices using the same Apple ID. For data sync, you can use iCloud backup/restore from the Settings screen.</p>
+        <p class="faq-question">Q: What happens to my Pro status if I reinstall the app?</p>
+        <p>Your Pro purchase is tied to your Apple ID. After reinstalling, tap "Restore Purchases" in Settings to restore your Pro status.</p>
 
-    <p class="faq-question">Q: Does LeadUp have subscriptions or ads?</p>
-    <p>No. LeadUp is a one-time purchase with no subscriptions, no ads, and no tracking.</p>
+        <p class="faq-question">Q: Can I use LeadUp on multiple devices?</p>
+        <p>Yes! Your Pro purchase works on all devices using the same Apple ID. For data sync, you can use iCloud backup/restore from the Settings screen.</p>
 
-    <h2>Notifications & Reminders</h2>
+        <p class="faq-question">Q: Does LeadUp have subscriptions or ads?</p>
+        <p>No. LeadUp is a one-time purchase with no subscriptions, no ads, and no tracking.</p>
 
-    <p>LeadUp sends smart notifications that include event context and quick actions.</p>
+        <h2>Notifications & Reminders</h2>
 
-    <h3>What's in a Notification?</h3>
-    <ul>
-        <li><strong>Step title</strong> - What you need to do</li>
-        <li><strong>Event context</strong> - "For event: [Your Event Name]"</li>
-        <li><strong>Quick actions</strong> - Right from the lock screen:
-            <ul>
-                <li><strong>Snooze 5 min</strong> - Delay reminder briefly</li>
-                <li><strong>Snooze 15 min</strong> - Standard snooze</li>
-                <li><strong>Snooze 1 hour</strong> - Longer delay</li>
-                <li><strong>Mark Complete</strong> - Check off the step without opening the app</li>
-                <li><strong>Pause Event</strong> - Temporarily stop all reminders for this event</li>
-            </ul>
-        </li>
-    </ul>
+        <p>LeadUp sends smart notifications that include event context and quick actions.</p>
 
-    <div class="tip">
-        <strong>Smart Snoozing:</strong> When you snooze a step, LeadUp shows "Snoozed until [time]" status. The step doesn't disappear - you always know when it'll remind you again.
-    </div>
+        <h3>What's in a Notification?</h3>
+        <ul>
+            <li><strong>Step title</strong> — What you need to do</li>
+            <li><strong>Event context</strong> — "For event: [Your Event Name]"</li>
+            <li><strong>Quick actions</strong> — Right from the lock screen:
+                <ul>
+                    <li><strong>Snooze 5 min</strong> — Delay reminder briefly</li>
+                    <li><strong>Snooze 15 min</strong> — Standard snooze</li>
+                    <li><strong>Snooze 1 hour</strong> — Longer delay</li>
+                    <li><strong>Mark Complete</strong> — Check off the step without opening the app</li>
+                    <li><strong>Pause Event</strong> — Temporarily stop all reminders for this event</li>
+                </ul>
+            </li>
+        </ul>
 
-    <h2>Troubleshooting</h2>
+        <div class="tip">
+            <strong>Smart Snoozing:</strong> When you snooze a step, LeadUp shows "Snoozed until [time]" status. The step doesn't disappear — you always know when it'll remind you again.
+        </div>
 
-    <h3>Notifications Aren't Appearing</h3>
-    <ol>
-        <li>Check iOS Settings → Notifications → LeadUp → ensure "Allow Notifications" is ON</li>
-        <li>Ensure Notification Style is set to "Alerts" (not "None" or "Banners only")</li>
-        <li>Check that your event/step times are in the future</li>
-        <li>Note: iOS limits total scheduled notifications. If you have many events, some distant notifications may not schedule until closer to their time.</li>
-    </ol>
+        <h2>Troubleshooting</h2>
 
-    <h3>Calendar Permission Issues</h3>
-    <ol>
-        <li>Go to iOS Settings → Privacy & Security → Calendars</li>
-        <li>Find LeadUp in the list and ensure it's toggled ON</li>
-        <li>Return to LeadUp and try linking a calendar event again</li>
-    </ol>
+        <h3>Notifications Aren't Appearing</h3>
+        <ol>
+            <li>Check iOS Settings → Notifications → LeadUp → ensure "Allow Notifications" is ON</li>
+            <li>Ensure Notification Style is set to "Alerts" (not "None" or "Banners only")</li>
+            <li>Check that your event/step times are in the future</li>
+            <li>Note: iOS limits total scheduled notifications. If you have many events, some distant notifications may not schedule until closer to their time.</li>
+        </ol>
 
-    <h3>Can't Create More Events (Free Tier)</h3>
-    <p>You've reached the 2 active event limit. Options:</p>
-    <ul>
-        <li><strong>Pause an event</strong> - Paused events don't count toward the limit</li>
-        <li><strong>Wait for an event to complete</strong> - Past events don't count</li>
-        <li><strong>Upgrade to LeadUp Pro</strong> - Get unlimited events</li>
-    </ul>
+        <h3>Calendar Permission Issues</h3>
+        <ol>
+            <li>Go to iOS Settings → Privacy & Security → Calendars</li>
+            <li>Find LeadUp in the list and ensure it's toggled ON</li>
+            <li>Return to LeadUp and try linking a calendar event again</li>
+        </ol>
 
-    <h3>Restore Purchases Not Working</h3>
-    <ol>
-        <li>Ensure you're signed in to the same Apple ID you used to purchase</li>
-        <li>Check your internet connection</li>
-        <li>Go to Settings → tap "Restore Purchases"</li>
-        <li>Wait up to 30 seconds for verification</li>
-        <li>If still not working, restart the app and try again</li>
-    </ol>
+        <h3>Can't Create More Events (Free Tier)</h3>
+        <p>You've reached the 2 active event limit. Options:</p>
+        <ul>
+            <li><strong>Pause an event</strong> — Paused events don't count toward the limit</li>
+            <li><strong>Wait for an event to complete</strong> — Past events don't count</li>
+            <li><strong>Upgrade to LeadUp Pro</strong> — Get unlimited events</li>
+        </ul>
 
-    <h3>Lost My Data After Reinstalling</h3>
-    <p>If you used iCloud backup:</p>
-    <ol>
-        <li>Open LeadUp → Settings</li>
-        <li>Tap "Restore from iCloud"</li>
-        <li>Your most recent backup will be restored</li>
-    </ol>
-    <p>If you didn't enable iCloud backup, your local data is lost on reinstall. We recommend enabling iCloud backup in Settings to prevent this.</p>
+        <h3>Restore Purchases Not Working</h3>
+        <ol>
+            <li>Ensure you're signed in to the same Apple ID you used to purchase</li>
+            <li>Check your internet connection</li>
+            <li>Go to Settings → tap "Restore Purchases"</li>
+            <li>Wait up to 30 seconds for verification</li>
+            <li>If still not working, restart the app and try again</li>
+        </ol>
 
-    <div class="warning">
-        <strong>Prevention:</strong> Enable iCloud backup in Settings → Backup & Restore. Your events automatically back up to your personal iCloud Drive.
-    </div>
+        <h3>Lost My Data After Reinstalling</h3>
+        <p>If you used iCloud backup:</p>
+        <ol>
+            <li>Open LeadUp → Settings</li>
+            <li>Tap "Restore from iCloud"</li>
+            <li>Your most recent backup will be restored</li>
+        </ol>
+        <p>If you didn't enable iCloud backup, your local data is lost on reinstall. We recommend enabling iCloud backup in Settings to prevent this.</p>
 
-    <h2>Tips & Best Practices</h2>
+        <div class="warning">
+            <strong>Prevention:</strong> Enable iCloud backup in Settings → Backup & Restore. Your events automatically back up to your personal iCloud Drive.
+        </div>
 
-    <h3>For Travel Days</h3>
-    <ul>
-        <li>Anchor to your flight time (2 hours before: security, 90 min before: parking, 45 min before: gate)</li>
-        <li>If your flight gets delayed, change the event time once - all steps shift</li>
-        <li>Link to your calendar event for automatic updates</li>
-    </ul>
+        <h2>Tips & Best Practices</h2>
 
-    <h3>For Recurring Events (Weekly Classes, Shows)</h3>
-    <ul>
-        <li>Create the event once with all your steps</li>
-        <li>Upgrade to Pro and duplicate it each week</li>
-        <li>Just change the date - all Before/After offsets stay perfect</li>
-    </ul>
+        <h3>For Travel Days</h3>
+        <ul>
+            <li>Anchor to your flight time (2 hours before: security, 90 min before: parking, 45 min before: gate)</li>
+            <li>If your flight gets delayed, change the event time once — all steps shift</li>
+            <li>Link to your calendar event for automatic updates</li>
+        </ul>
 
-    <h3>For Big Events (Weddings, Marathons)</h3>
-    <ul>
-        <li>Mix Before and After steps (prep before, cleanup after)</li>
-        <li>Use days for long-range prep (7 days before: pick up bib, 1 day before: pack bag)</li>
-        <li>Share the timeline with your team - everyone stays in sync</li>
-    </ul>
+        <h3>For Recurring Events (Weekly Classes, Shows)</h3>
+        <ul>
+            <li>Create the event once with all your steps</li>
+            <li>Upgrade to Pro and duplicate it each week</li>
+            <li>Just change the date — all Before/After offsets stay perfect</li>
+        </ul>
 
-    <h2>System Requirements</h2>
-    <ul>
-        <li><strong>Platform:</strong> iOS 16.0 or later</li>
-        <li><strong>Devices:</strong> iPhone, iPad</li>
-        <li><strong>Storage:</strong> Minimal (typically under 10 MB)</li>
-        <li><strong>Internet:</strong> Not required (optional for Pro purchase/restore and iCloud backup)</li>
-    </ul>
+        <h3>For Big Events (Weddings, Marathons)</h3>
+        <ul>
+            <li>Mix Before and After steps (prep before, cleanup after)</li>
+            <li>Use days for long-range prep (7 days before: pick up bib, 1 day before: pack bag)</li>
+            <li>Share the timeline with your team — everyone stays in sync</li>
+        </ul>
 
-    <h2>Privacy & Security</h2>
-    <p>LeadUp is private by design:</p>
-    <ul>
-        <li>No account required</li>
-        <li>No analytics or tracking</li>
-        <li>Data stays on your device (and optionally in your iCloud Drive)</li>
-        <li>We never see your data</li>
-    </ul>
-    <p>Read our full <a href="privacy.html">Privacy Policy</a>.</p>
+        <h2>System Requirements</h2>
+        <ul>
+            <li><strong>Platform:</strong> iOS 16.0 or later</li>
+            <li><strong>Devices:</strong> iPhone, iPad</li>
+            <li><strong>Storage:</strong> Minimal (typically under 10 MB)</li>
+            <li><strong>Internet:</strong> Not required (optional for Pro purchase/restore and iCloud backup)</li>
+        </ul>
 
-    <h2>Feature Requests & Bug Reports</h2>
-    <p>We're actively improving LeadUp. If you have ideas or encounter issues:</p>
-    <ul>
-        <li>Email us at <a href="mailto:leaduphelp@gmail.com">leaduphelp@gmail.com</a></li>
-        <li>Include your iOS version and device model for bug reports</li>
-        <li>Screenshots are helpful if something looks wrong</li>
-    </ul>
+        <h2>Privacy & Security</h2>
+        <p>LeadUp is private by design:</p>
+        <ul>
+            <li>No account required</li>
+            <li>No analytics or tracking</li>
+            <li>Data stays on your device (and optionally in your iCloud Drive)</li>
+            <li>We never see your data</li>
+        </ul>
+        <p>Read our full <a href="privacy.html">Privacy Policy</a>.</p>
 
-    <div class="contact-box">
-        <strong>Still need help?</strong><br>
-        Email: <a href="mailto:leaduphelp@gmail.com">leaduphelp@gmail.com</a><br>
-        Privacy Policy: <a href="privacy.html">View Here</a>
-    </div>
+        <h2>Feature Requests & Bug Reports</h2>
+        <p>We're actively improving LeadUp. If you have ideas or encounter issues:</p>
+        <ul>
+            <li>Email us at <a href="mailto:leaduphelp@gmail.com">leaduphelp@gmail.com</a></li>
+            <li>Include your iOS version and device model for bug reports</li>
+            <li>Screenshots are helpful if something looks wrong</li>
+        </ul>
 
-    <p style="text-align: center; color: #999; margin-top: 60px; font-size: 0.9em;">
-        © 2026 Richard Sperko. All rights reserved.
-    </p>
+        <div class="contact-box">
+            <strong>Still need help?</strong><br>
+            Email: <a href="mailto:leaduphelp@gmail.com">leaduphelp@gmail.com</a><br>
+            Privacy Policy: <a href="privacy.html">View Here</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="landing.html">Home</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="mailto:leaduphelp@gmail.com">Contact</a>
+        </div>
+        <p class="footer-copyright">© 2026 Richard Sperko. All rights reserved.</p>
+    </footer>
 </body>
 </html>
